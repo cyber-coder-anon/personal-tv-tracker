@@ -13,6 +13,10 @@ This application allows you to seamlessly track everything you watch, migrate al
 | :---: | :---: |
 | ![Desktop Shows](screenshots/desktop_shows.jpg) | ![Desktop Movies](screenshots/desktop_movies.jpg) |
 
+| Search & Analytics | AI Insights (Wokealyzer) |
+| :---: | :---: |
+| ![Semantic Search](screenshots/desktop_search.jpg) | ![AI Details](screenshots/desktop_details.jpg) |
+
 ### Mobile Experience
 | Mobile Dashboard | Mobile Shows |
 | :---: | :---: |
@@ -20,7 +24,7 @@ This application allows you to seamlessly track everything you watch, migrate al
 
 ## ✨ Features
 
-- **Personalized Dashboard**: Track your watched episodes, movies, and current progress with a beautiful modern UI.
+- **Personalized Dashboard**: Track your watched episodes, movies, and current progress with a beautiful modern UI. Complete with visual graph analytics for your viewing history!
 - **Wokealyzer & Explicit Content Detection**: Powered by Google Gemini AI natively integrated with Firebase Vertex AI. Automatically analyzes the shows you're watching and flags any explicit sex scenes or mature themes to keep you informed.
 - **GDPR Seamless Migration**: Includes a custom-built, rate-limit safe migration engine that takes your exported CSV data and cleanly builds your database from scratch using TMDB & OMDB APIs.
 - **Responsive UI**: A sleek interface tailored for both desktop and mobile users utilizing standard CSS and React (Vite).
