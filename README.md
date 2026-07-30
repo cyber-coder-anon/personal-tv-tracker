@@ -36,15 +36,19 @@ Whether you're on a massive 4K monitor or checking off an episode on your iPhone
 | :---: | :---: |
 | <img src="screenshots/mobile_dashboard.jpg" width="300" /> | <img src="screenshots/mobile_shows.jpg" width="300" /> |
 
-### 🍿 Dedicated Libraries
+### 🍿 Dedicated Libraries & Granular Tracking
 Keep your content organized. TV-Timeless splits your tracking into intuitive tabs:
 - **Up Next**: The dashboard tracks what you're currently in the middle of.
-- **Shows**: Your complete library of series, tracked season by season.
+- **Shows**: Your complete library of series. **Click on any show to instantly view all seasons, and expand them to check off individual episodes as you watch them!**
 - **Movies**: A dedicated cinematic vault for everything you've watched.
 
-| Shows Library | Movies Library |
+| Shows Library | Episode Tracking |
 | :---: | :---: |
-| ![Desktop Shows](screenshots/desktop_shows.jpg) | ![Desktop Movies](screenshots/desktop_movies.jpg) |
+| ![Desktop Shows](screenshots/desktop_shows.jpg) | ![Episode Tracking](screenshots/desktop_episodes.jpg) |
+
+| Movies Library |
+| :---: |
+| ![Desktop Movies](screenshots/desktop_movies.jpg) |
 
 ---
 
