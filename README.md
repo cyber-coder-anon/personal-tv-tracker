@@ -1,8 +1,8 @@
-# 📺 Personal TV & Movie Tracker
+# 📺 TV-Timeless
 
-Welcome to the ultimate, privacy-first **Personal TV & Movie Tracker**!
+Welcome to the ultimate, privacy-first **TV-Timeless Tracker**!
 
-This application allows you to seamlessly track everything you watch, migrate all your historical GDPR data, and sync it natively to a secure, private Firebase database. 
+This application allows TV Time refugees to seamlessly track everything you watch, migrate all your historical GDPR data, and sync it natively to a secure, private Firebase database. 
 
 ![TV Tracker Dashboard](screenshots/desktop_dashboard.jpg)
 
