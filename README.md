@@ -4,7 +4,19 @@ Welcome to the ultimate, privacy-first **Personal TV & Movie Tracker**!
 
 This application allows you to seamlessly track everything you watch, migrate all your historical GDPR data, and sync it natively to a secure, private Firebase database. 
 
-![TV Tracker](https://image.thum.io/get/width/1200/crop/800/https://tv-time-72eda.web.app/)
+![TV Tracker Dashboard](screenshots/desktop_dashboard.jpg)
+
+## 📸 Previews
+
+### Desktop Experience
+| Shows Library | Movies Library |
+| :---: | :---: |
+| ![Desktop Shows](screenshots/desktop_shows.jpg) | ![Desktop Movies](screenshots/desktop_movies.jpg) |
+
+### Mobile Experience
+| Mobile Dashboard | Mobile Shows |
+| :---: | :---: |
+| <img src="screenshots/mobile_dashboard.jpg" width="300" /> | <img src="screenshots/mobile_shows.jpg" width="300" /> |
 
 ## ✨ Features
 
