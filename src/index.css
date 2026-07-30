@@ -1,0 +1,1114 @@
+:root {
+  /* OpenClaw Colors (design inspo/DESIGN.md) */
+  --color-accent: #5865f2; /* Discord-branded elements ONLY per spec */
+  --color-cyan: #00e5cc;
+  --color-coral-bright: #ff4d4d;
+  --color-coral-dark: #991b1b;
+  --color-gold: #fbbf24;
+  --color-positive: #28c840;
+  --color-text-muted: rgb(96, 106, 134);
+  --color-surface: rgba(7, 10, 18, 0.75);
+  --color-surface-dark: #010204;
+  --color-border: rgba(136, 146, 176, 0.14);
+  --color-ink-inverse: #fff;
+  --color-ink: #f0f4ff;
+
+  /* Shadows */
+  --shadow-cyan-soft: 0 12px 40px rgba(0, 229, 204, 0.1);
+  --shadow-coral-soft: 0 12px 40px rgba(255, 77, 77, 0.12);
+  --focus-ring: 0 0 0 3px rgba(255, 77, 77, 0.22);
+  --focus-ring-cyan: 0 0 0 3px rgba(0, 229, 204, 0.22);
+
+  /* Typography */
+  --font-body: "Satoshi", -apple-system, sans-serif;
+  --font-heading: "Clash Display", -apple-system, sans-serif;
+  --font-mono: "SF Mono", "Fira Code", Consolas, monospace;
+
+  /* Radii */
+  --radius-sm: 4px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --radius-pill: 999px;
+
+  /* Layout — near full-bleed; grids fill the width */
+  --layout-content-width-desktop: 1560px;
+  --layout-content-padding-x: 32px;
+  --layout-section-spacing-y: 56px;
+  --layout-grid-gap-md: 16px;
+  --layout-header-height: 62px;
+
+  /* Mobile bottom nav */
+  --bottom-nav-height: 60px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  /* near-black base with faint cyan/coral aura glows */
+  background:
+    radial-gradient(1100px 700px at 88% -8%, rgba(0, 229, 204, 0.055), transparent 62%),
+    radial-gradient(900px 650px at -8% 12%, rgba(88, 90, 160, 0.04), transparent 60%),
+    radial-gradient(1000px 750px at 50% 115%, rgba(255, 77, 77, 0.045), transparent 62%),
+    var(--color-surface-dark);
+  background-attachment: fixed;
+  color: var(--color-ink);
+  line-height: 1.6;
+  font-size: 16px;
+  min-height: 100vh;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  line-height: 1.1;
+}
+
+button {
+  font-family: var(--font-body);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.app-container {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header */
+.header {
+  height: var(--layout-header-height);
+  background-color: rgba(1, 2, 4, 0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--color-border);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--layout-content-padding-x);
+  width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  filter: drop-shadow(0 0 8px rgba(0, 229, 204, 0.5));
+}
+
+.logo h1 {
+  font-size: 20px;
+  margin: 0;
+}
+
+.nav {
+  display: flex;
+  gap: 10px;
+}
+
+/* Base Buttons */
+.nav-btn {
+  background-color: transparent;
+  color: var(--color-text-muted);
+  border: none;
+  padding: 5px 12px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  font-size: 14.4px;
+  font-weight: 500;
+}
+
+.nav-btn .nav-icon {
+  margin-right: 6px;
+  flex-shrink: 0;
+}
+
+.nav-btn:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.nav-btn.active {
+  background-color: rgba(255, 255, 255, 0.05);
+  color: var(--color-ink);
+}
+
+.nav-btn.active .nav-icon {
+  filter: drop-shadow(0 0 6px rgba(0, 229, 204, 0.55));
+}
+
+/* Buttons */
+.primary-btn {
+  background: linear-gradient(135deg, var(--color-coral-bright) 0%, var(--color-coral-dark) 100%);
+  color: var(--color-ink-inverse);
+  border: none;
+  border-radius: var(--radius-md);
+  padding: 10px 20px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: opacity 0.2s, box-shadow 0.2s;
+}
+
+.primary-btn:hover {
+  opacity: 0.9;
+}
+
+.primary-btn:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+}
+
+.primary-btn:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.secondary-btn {
+  background-color: #ffffff0f;
+  color: var(--color-ink);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-md);
+  padding: 10px 20px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.secondary-btn:hover {
+  background-color: #ffffff1f;
+}
+
+.secondary-btn:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring-cyan);
+}
+
+.tertiary-btn {
+  background-color: transparent;
+  color: var(--color-text-muted);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 5px 12px;
+  cursor: pointer;
+}
+
+.tertiary-btn:hover {
+  color: var(--color-ink);
+  border-color: rgba(136, 146, 176, 0.4);
+}
+
+/* Accent Tag Pill */
+.accent-pill {
+  background-color: rgba(0, 229, 204, 0.15);
+  color: var(--color-cyan);
+  border: 1px solid var(--color-cyan);
+  border-radius: var(--radius-pill);
+  padding: 4px 10px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.muted-pill {
+  background-color: transparent;
+  color: var(--color-text-muted);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  padding: 4px 10px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* Main Content Area */
+.main-content {
+  flex: 1;
+  width: 100%;
+  max-width: var(--layout-content-width-desktop);
+  margin: 0 auto;
+  padding: 30px var(--layout-content-padding-x) 40px; /* Reduced from 60px to fix wasted space */
+}
+
+/* Large Tabs for Shows/Movies */
+.tab-btn {
+  flex: 1;
+  padding: 12px 20px;
+  background-color: var(--color-surface);
+  color: var(--color-text-muted);
+  border: 1px solid var(--color-border);
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: var(--radius-md);
+  transition: all 0.2s;
+  text-align: center;
+}
+
+.tab-btn.active {
+  background-color: rgba(0, 229, 204, 0.08);
+  color: var(--color-cyan);
+  border-color: var(--color-cyan);
+}
+
+/* Grid System — poster density scales with viewport (TV Time style) */
+.shows-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: var(--layout-grid-gap-md);
+  margin-bottom: var(--layout-section-spacing-y);
+}
+
+/* Cards (OpenClaw style) */
+.show-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.show-card:hover {
+  box-shadow: var(--shadow-cyan-soft);
+  transform: translateY(-2px);
+}
+
+.show-poster {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  background-color: #111;
+  position: relative;
+  overflow: hidden;
+}
+
+.show-info {
+  display: flex;
+  flex-direction: column;
+  padding: 12px 14px;
+  gap: 4px;
+}
+
+.show-name {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--color-ink);
+  margin: 0;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  font-family: var(--font-body);
+}
+
+.show-meta {
+  font-size: 13px;
+  color: var(--color-text-muted);
+}
+
+.show-title-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20px 12px 12px;
+  background: linear-gradient(transparent, rgba(5, 8, 16, 0.9));
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* Surfaces */
+.surface-panel {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+}
+
+/* Quick-check button on poster cards (TV Time style) */
+.check-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background-color: rgba(5, 8, 16, 0.75);
+  color: var(--color-cyan);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.15s, transform 0.15s;
+  backdrop-filter: blur(4px);
+}
+
+.check-btn:hover {
+  background-color: var(--color-cyan);
+  color: var(--color-surface-dark);
+  transform: scale(1.08);
+}
+
+.check-btn:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+/* Progress bar along the bottom of a poster */
+.progress-track {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background-color: rgba(255, 255, 255, 0.12);
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background-color: var(--color-cyan);
+  transition: width 0.3s ease;
+}
+
+/* Toast notification */
+.toast {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(10, 15, 26, 0.95);
+  border: 1px solid var(--color-cyan);
+  color: var(--color-ink);
+  padding: 12px 24px;
+  border-radius: var(--radius-pill);
+  font-size: 14px;
+  z-index: 2000;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+  animation: toast-in 0.2s ease;
+  max-width: calc(100vw - 32px);
+}
+
+@keyframes toast-in {
+  from { opacity: 0; transform: translate(-50%, 10px); }
+  to { opacity: 1; transform: translate(-50%, 0); }
+}
+
+/* Upcoming episodes list */
+.upcoming-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 16px;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: border-color 0.15s;
+}
+
+.upcoming-row:hover {
+  border-color: var(--color-cyan);
+}
+
+.upcoming-poster {
+  width: 44px;
+  height: 66px;
+  border-radius: var(--radius-sm);
+  flex-shrink: 0;
+  background-color: #111;
+}
+
+/* Season accordion + episode rows */
+.season-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 18px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.season-header:hover {
+  background-color: rgba(255, 255, 255, 0.03);
+}
+
+.episode-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 18px;
+  font-size: 14px;
+  border-bottom: 1px solid rgba(136, 146, 176, 0.08);
+}
+
+.episode-row:last-child {
+  border-bottom: none;
+}
+
+.ep-check {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1px solid var(--color-border);
+  background-color: transparent;
+  color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: all 0.15s;
+}
+
+.ep-check:hover {
+  border-color: var(--color-cyan);
+  color: var(--color-cyan);
+}
+
+.ep-check.watched {
+  background-color: var(--color-cyan);
+  border-color: var(--color-cyan);
+  color: var(--color-surface-dark);
+}
+
+/* Search input */
+.search-input {
+  flex: 1;
+  min-width: 220px;
+  padding: 12px 16px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  background-color: var(--color-surface);
+  color: var(--color-ink);
+  font-size: 15px;
+  font-family: var(--font-body);
+  outline: none;
+}
+
+.search-input::placeholder {
+  color: var(--color-text-muted);
+}
+
+.search-input:focus {
+  border-color: var(--color-cyan);
+  box-shadow: var(--focus-ring-cyan);
+}
+
+/* Poster picker modal */
+.poster-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.92);
+  z-index: 1000;
+  padding: 40px;
+  overflow-y: auto;
+}
+
+/* Details page poster column */
+.details-poster-col {
+  flex: 1 1 280px;
+  max-width: 340px;
+}
+
+/* Rating badges (TMDB / IMDb / RT / Metacritic) */
+.rating-badge {
+  background-color: rgba(0, 229, 204, 0.08);
+  color: var(--color-cyan);
+  border: 1px solid rgba(0, 229, 204, 0.35);
+  border-radius: var(--radius-pill);
+  padding: 3px 10px;
+  font-size: 13px;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.rating-badge small {
+  font-weight: 500;
+  opacity: 0.7;
+  font-size: 10px;
+  margin-left: 2px;
+}
+
+.rating-badge.imdb {
+  background-color: rgba(245, 197, 24, 0.08);
+  color: #f5c518;
+  border-color: rgba(245, 197, 24, 0.4);
+}
+
+.rating-badge.rt {
+  background-color: rgba(250, 50, 10, 0.08);
+  color: #ff6347;
+  border-color: rgba(250, 50, 10, 0.35);
+}
+
+.rating-badge.mc {
+  background-color: rgba(255, 204, 51, 0.06);
+  color: #ffcc33;
+  border-color: rgba(255, 204, 51, 0.3);
+}
+
+/* Age / content rating */
+.age-badge {
+  background-color: rgba(255, 255, 255, 0.06);
+  color: var(--color-ink);
+  border: 1.5px solid rgba(240, 244, 255, 0.5);
+  border-radius: var(--radius-sm);
+  padding: 2px 8px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  flex-shrink: 0;
+}
+
+/* Inline episode rating in the season list */
+.ep-rating {
+  color: var(--color-cyan);
+  font-size: 12px;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.ep-rating.imdb {
+  color: #f5c518;
+}
+
+/* Details page: seasons left / info right on desktop, stacked on mobile */
+.details-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.details-layout.no-seasons {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.season-tracker {
+  margin-top: 0;
+}
+
+@media (min-width: 981px) {
+  .details-layout:not(.no-seasons) {
+    display: grid;
+    grid-template-columns: minmax(0, 6fr) minmax(360px, 5fr);
+    grid-template-areas: "main seasons";
+    gap: 2.5rem;
+    align-items: start;
+  }
+
+  .details-layout:not(.no-seasons) .details-main {
+    grid-area: main;
+  }
+
+  .details-layout:not(.no-seasons) .details-seasons {
+    grid-area: seasons;
+  }
+}
+
+/* Upcoming: date group headings */
+.date-heading {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 8px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.date-heading span:first-child {
+  font-weight: 700;
+  font-family: var(--font-heading);
+  font-size: 15px;
+}
+
+.date-heading-chip {
+  color: var(--color-cyan);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* Hide-from-upcoming button */
+.hide-btn {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1px solid var(--color-border);
+  background-color: transparent;
+  color: var(--color-text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: all 0.15s;
+}
+
+.hide-btn:hover {
+  border-color: var(--color-coral-bright);
+  color: var(--color-coral-bright);
+}
+
+/* Episode detail modal */
+.episode-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  z-index: 1500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.episode-modal {
+  background-color: #04070d;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  max-width: 560px;
+  width: 100%;
+  max-height: calc(100vh - 40px);
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.8), var(--shadow-cyan-soft);
+  animation: modal-in 0.18s ease;
+}
+
+@keyframes modal-in {
+  from { opacity: 0; transform: translateY(12px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.episode-modal-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background-color: rgba(0, 0, 0, 0.6);
+  color: var(--color-ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 2;
+  backdrop-filter: blur(4px);
+}
+
+.episode-modal-close:hover {
+  background-color: rgba(255, 77, 77, 0.7);
+}
+
+.episode-still {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: block;
+  border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+}
+
+.episode-still.placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-muted);
+  background: linear-gradient(135deg, #0a0f1a, #04070d);
+  font-size: 14px;
+}
+
+.episode-row.clickable {
+  cursor: pointer;
+}
+
+.episode-row.clickable:hover {
+  background-color: rgba(0, 229, 204, 0.04);
+}
+
+/* Rewatch count badge */
+.rewatch-badge {
+  background-color: rgba(251, 191, 36, 0.12);
+  color: var(--color-gold);
+  border: 1px solid rgba(251, 191, 36, 0.4);
+  border-radius: var(--radius-pill);
+  padding: 1px 8px;
+  font-size: 11px;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+/* Rewatch (+1) button in episode rows */
+.ep-rewatch {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1px solid var(--color-border);
+  background-color: transparent;
+  color: var(--color-text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: all 0.15s;
+}
+
+.ep-rewatch:hover {
+  border-color: var(--color-gold);
+  color: var(--color-gold);
+}
+
+/* Toast buttons */
+.toast-undo-btn {
+  background-color: var(--color-cyan);
+  color: var(--color-surface-dark);
+  border: none;
+  border-radius: var(--radius-pill);
+  padding: 5px 14px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.toast-undo-btn:hover {
+  opacity: 0.85;
+}
+
+.toast-close-btn {
+  background: transparent;
+  border: none;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 4px;
+  flex-shrink: 0;
+}
+
+.toast-close-btn:hover {
+  color: var(--color-ink);
+}
+
+/* Spinner */
+.spin {
+  animation: spinner 0.8s linear infinite;
+}
+
+@keyframes spinner {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* ============================================================
+   RESPONSIVE — tablet
+   ============================================================ */
+@media (max-width: 768px) {
+  .shows-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 40px;
+  }
+
+  .surface-panel {
+    padding: 18px;
+  }
+}
+
+/* ============================================================
+   RESPONSIVE — phone: app-like layout with bottom tab bar
+   ============================================================ */
+@media (max-width: 640px) {
+  /* Header: logo only, centered */
+  .header {
+    justify-content: center;
+    height: 52px;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    background-color: var(--color-surface-dark);
+  }
+
+  /* Nav becomes a fixed bottom tab bar (TV Time style) */
+  .nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: calc(var(--bottom-nav-height) + env(safe-area-inset-bottom, 0px));
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+    background-color: rgba(1, 2, 4, 0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-top: 1px solid var(--color-border);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    z-index: 500;
+  }
+
+  .nav-btn {
+    flex-direction: column;
+    justify-content: center;
+    gap: 3px;
+    padding: 6px 4px;
+    border-radius: 0;
+    font-size: 11px;
+    height: var(--bottom-nav-height);
+  }
+
+  .nav-btn .nav-icon {
+    margin-right: 0;
+    width: 22px;
+    height: 22px;
+  }
+
+  .nav-btn:hover {
+    background-color: transparent;
+  }
+
+  .nav-btn.active {
+    background-color: transparent;
+    color: var(--color-cyan);
+  }
+
+  /* Content clears the bottom bar */
+  .main-content {
+    padding: 24px 16px calc(var(--bottom-nav-height) + env(safe-area-inset-bottom, 0px) + 24px);
+  }
+
+  /* Keep 3-up poster density, tighten the chrome */
+  .shows-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    margin-bottom: 32px;
+  }
+
+  .show-card {
+    border-radius: var(--radius-md);
+  }
+
+  .show-info {
+    padding: 8px 10px;
+    gap: 2px;
+  }
+
+  .show-name {
+    font-size: 12.5px;
+  }
+
+  .show-meta {
+    font-size: 11px;
+  }
+
+  .show-title-overlay {
+    font-size: 12px;
+    padding: 14px 8px 8px;
+  }
+
+  .check-btn {
+    width: 34px;
+    height: 34px;
+    top: 6px;
+    right: 6px;
+  }
+
+  /* Bigger touch targets for episode toggles */
+  .ep-check,
+  .ep-rewatch {
+    width: 36px;
+    height: 36px;
+  }
+
+  .episode-row {
+    padding: 8px 12px;
+    gap: 8px;
+    font-size: 13px;
+  }
+
+  .ep-air-date {
+    display: none;
+  }
+
+  .season-header {
+    padding: 12px 14px;
+    flex-wrap: wrap;
+    row-gap: 6px;
+  }
+
+  /* bottom-sheet style episode modal on phones */
+  .episode-modal-backdrop {
+    padding: 0;
+    align-items: flex-end;
+  }
+
+  .episode-modal {
+    max-width: 100%;
+    max-height: 88vh;
+    border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+    border-bottom: none;
+  }
+
+  .episode-still {
+    border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+  }
+
+  .upcoming-row {
+    gap: 12px;
+    padding: 10px 12px;
+  }
+
+  .surface-panel {
+    padding: 16px;
+    border-radius: var(--radius-md);
+  }
+
+  .poster-modal {
+    padding: 16px;
+    padding-bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+  }
+
+  .details-poster-col {
+    max-width: 220px;
+    margin: 0 auto;
+  }
+
+  .toast {
+    bottom: calc(var(--bottom-nav-height) + env(safe-area-inset-bottom, 0px) + 16px);
+    font-size: 13px;
+    padding: 10px 18px;
+  }
+}
+
+/* Very small phones: 2-up grid so titles stay readable */
+@media (max-width: 360px) {
+  .shows-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Details Mobile Restructure */
+.details-header {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.details-info-col {
+  flex: 2 1 400px;
+  min-width: 0;
+}
+
+.mobile-only-poster-bar { display: none; }
+.desktop-only-stats { display: block; }
+.mobile-only-graph-toggle { display: none; }
+.graph-content { display: block; }
+.mobile-overview-toggle { display: none; }
+.mobile-overview-header { cursor: default; }
+
+.icon-btn {
+  background: none;
+  border: none;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  padding: 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-pill);
+  transition: all 0.2s;
+}
+.icon-btn:hover {
+  color: var(--color-cyan);
+  background: rgba(0, 229, 204, 0.15);
+}
+
+.desktop-list-controls { display: block; }
+.mobile-list-controls { display: none; position: relative; }
+.mobile-context-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 8px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 180px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.8);
+  z-index: 50;
+}
+.mobile-context-menu .secondary-btn {
+  width: 100%;
+  text-align: left;
+  justify-content: flex-start;
+  border: none;
+  background: transparent;
+}
+.mobile-context-menu .secondary-btn:hover {
+  background: var(--color-surface-hover);
+}
+
+@media (max-width: 768px) {
+  .details-header {
+    flex-wrap: nowrap;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+  
+  .details-poster-col {
+    flex: 0 0 110px !important;
+    max-width: 110px !important;
+    margin: 0 !important;
+  }
+
+  .details-title {
+    font-size: 1.4rem !important;
+  }
+  
+  .desktop-only-stats { display: none; }
+  .mobile-only-poster-bar { display: block; }
+  
+  .mobile-only-graph-toggle { display: block; }
+  .graph-content { display: none; }
+  .graph-content.show { display: block; }
+
+  .mobile-overview-header { cursor: pointer; }
+  .mobile-overview-toggle { display: block; }
+  .mobile-overview-content { display: none; }
+  .mobile-overview-content.show { display: block; }
+
+  .desktop-list-controls { display: none !important; }
+  .mobile-list-controls { display: block; }
+}
