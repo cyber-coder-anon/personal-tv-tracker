@@ -1,5 +1,12 @@
 <div align="center">
+  <img src="public/logo.jpg" alt="TV-Timeless Logo" width="150" style="margin-bottom: 20px;"/>
   <h1>📺 TV-Timeless</h1>
+  <p>
+    <img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg" alt="License"/>
+    <img src="https://img.shields.io/badge/React-20232A?style=flat&logo=react&logoColor=61DAFB" alt="React"/>
+    <img src="https://img.shields.io/badge/Firebase-FFCA28?style=flat&logo=firebase&logoColor=black" alt="Firebase"/>
+    <img src="https://img.shields.io/badge/Gemini-8E75B2?style=flat&logo=google&logoColor=white" alt="Gemini"/>
+  </p>
   <p><strong>A passionate tribute and powerful replacement for the beloved TV-Time (RIP July 15, 2026).</strong></p>
 </div>
 
@@ -77,14 +84,24 @@ graph TD
 
 ---
 
-## 🚀 Getting Started (Chimp-Proof Guide 🦧)
+## 🚀 Getting Started
 
-Don't know how to code? Don't worry! Follow these steps and you'll have your own Netflix-style tracker up and running in 10 minutes.
+> [!TIP]
+> **🤖 WANT AN AI AGENT TO DO THIS FOR YOU? (Recommended)**
+> Don't want to type commands manually? If you have access to an agentic AI assistant (like Antigravity, Devin, or GitHub Copilot Workspaces), you can just copy/paste this prompt into the chat and let them handle the entire deployment!
+> 
+> ```text
+> Hey Agent! I want to deploy the TV-Timeless repository. Please read the instructions at https://raw.githubusercontent.com/cyber-coder-anon/tv-timeless/master/AGENT_SETUP.md on how to set up my Firebase environment and migrate my GDPR data.
+> ```
 
-### Step 1: Install Node.js
+### Manual Deployment (For Humans)
+
+Don't have an AI? Don't worry! Follow these steps and you'll have your own Netflix-style tracker up and running in 10 minutes.
+
+#### Step 1: Install Node.js
 Go to [nodejs.org](https://nodejs.org/) and download the "LTS" (Long Term Support) installer for your OS (Windows, Mac, or Ubuntu/Linux). Run the installer and click "Next" until it's done.
 
-### Step 2: Grab the Code
+#### Step 2: Grab the Code
 Open your computer's terminal:
 - **Windows**: Press `Win + R`, type `cmd`, and hit Enter.
 - **Mac**: Press `Cmd + Space`, type `Terminal`, and hit Enter.
@@ -97,29 +114,19 @@ cd tv-timeless
 npm install
 ```
 
-### Step 3: Run the Intelligent Setup Wizard 🧙‍♂️
+#### Step 3: Run the Intelligent Setup Wizard 🧙‍♂️
 Run the following command to start the wizard. It will ask for your Firebase keys and API keys (which are all free to get) and automatically seed your database:
 ```bash
 npm run setup
 ```
 
-### Step 4: Deploy to the Web! 🌐
+#### Step 4: Deploy to the Web! 🌐
 Once the wizard finishes and your data is uploaded, push it to your Firebase Hosting so you can access it on your phone:
 ```bash
 npm run build
 firebase deploy --only hosting
 ```
 Boom! You're done! 🎉
-
----
-
-> [!TIP]
-> **🤖 WANT AN AI AGENT TO DO THIS FOR YOU?**
-> If you have access to an agentic AI assistant (like Antigravity, Devin, or GitHub Copilot Workspaces), you can just copy/paste this prompt into the chat and let them handle the entire deployment!
-> 
-> ```text
-> Hey Agent! I want to deploy this TV-Timeless repository. Please read the `AGENT_SETUP.md` file in the root directory for instructions on how to set up my Firebase environment and migrate my data.
-> ```
 
 ---
 
