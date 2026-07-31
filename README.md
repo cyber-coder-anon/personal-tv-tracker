@@ -1,87 +1,132 @@
-# 📺 TV-Timeless
+<div align="center">
+  <h1>📺 TV-Timeless</h1>
+  <p><strong>A passionate tribute and powerful replacement for the beloved TV-Time (RIP July 15, 2026).</strong></p>
+</div>
 
-Welcome to the ultimate, privacy-first **TV-Timeless Tracker**! 
+For over a decade, TV-Time was the cozy digital home where millions of us meticulously tracked every binge-watch, shared our favorite moments, and agonized over character deaths. When the servers shut down on July 15, 2026, it felt like losing a piece of our television history. We lost our watchlists, our badges, and our timelines. 
 
-Built entirely from the ground up for **TV Time refugees** who want to own their data, this application allows you to seamlessly track everything you watch, migrate all your historical GDPR data, and sync it natively to a secure, private Firebase database. No telemetry. No trackers. Just you and your shows.
-
-![TV Tracker Dashboard](screenshots/desktop_dashboard.jpg)
-
----
-
-## 🌟 What can TV-Timeless do?
-
-TV-Timeless isn't just a list—it's a comprehensive dashboard for your entire entertainment life. 
-
-### 📊 Deep Visual Analytics
-**Hey look, you can track your habits like a pro!**
-Get a beautiful, bird's-eye view of your watching history. The dashboard features native integration with Recharts, generating stunning, responsive graphs that show you exactly how many episodes you've watched over time, your favorite genres, and your total runtime. 
-
-### 🤖 AI-Powered Content Warnings (Wokealyzer)
-**It also lets you know exactly what you're about to watch!**
-Tired of surprise explicit scenes when watching with family? TV-Timeless integrates directly with Google Gemini (Firebase Vertex AI) to provide the **Wokealyzer**. Before you even start a show, the AI scans the metadata and instantly flags explicit sexual content, extreme gore, or mature themes so you're never caught off guard.
-
-| Search & Discover | AI Insights & Warnings |
-| :---: | :---: |
-| ![Semantic Search](screenshots/desktop_search.jpg) | ![AI Details](screenshots/desktop_details.jpg) |
-
-### 🚀 One-Click TV Time Migration
-**You can do this without losing years of history!**
-We know how painful it is to switch apps. That's why TV-Timeless comes with an intelligent, rate-limit-safe **Migration Wizard**. Just drop in your GDPR export from TV Time, and the CLI wizard automatically parses your history, fetches high-quality metadata from TMDB/OMDB, and builds your private database from scratch. 
-
-### 📱 Flawless Cross-Platform Experience
-**And you can do this from anywhere.**
-Whether you're on a massive 4K monitor or checking off an episode on your iPhone during your commute, the UI is hyper-optimized. Beautiful glassmorphism, sleek dark mode, and a responsive React grid mean your library always looks premium.
-
-| Mobile Dashboard | Mobile Shows |
-| :---: | :---: |
-| <img src="screenshots/mobile_dashboard.jpg" width="300" /> | <img src="screenshots/mobile_shows.jpg" width="300" /> |
-
-### 🍿 Dedicated Libraries & Granular Tracking
-Keep your content organized. TV-Timeless splits your tracking into intuitive tabs:
-- **Up Next**: The dashboard tracks what you're currently in the middle of.
-- **Shows**: Your complete library of series. **Click on any show to instantly view all seasons, and expand them to check off individual episodes as you watch them!**
-- **Movies**: A dedicated cinematic vault for everything you've watched.
-
-| Shows Library | Episode Tracking |
-| :---: | :---: |
-| ![Desktop Shows](screenshots/desktop_shows.jpg) | ![Episode Tracking](screenshots/desktop_episodes.jpg) |
-
-| Movies Library |
-| :---: |
-| ![Desktop Movies](screenshots/desktop_movies.jpg) |
+**TV-Timeless** was built from the ashes for the refugees. It is a completely private, super-charged replacement that brings back the joy of tracking your favorite shows and movies without the corporate bloat. Whether you're seamlessly migrating your old GDPR data or starting fresh, TV-Timeless is your new, beautifully designed digital couch. Welcome home! 🛋️✨
 
 ---
 
-## 🚀 Getting Started
+## 🔒 100% Private. Your Data, Your Rules.
 
-### 1. Prerequisites
-- Node.js (v18+)
-- A Free [TMDB API Key](https://www.themoviedb.org/settings/api)
-- A Free [OMDB API Key](http://www.omdbapi.com/apikey.aspx)
-- A Firebase Project (with Firestore and Web Hosting enabled)
+Let's get one thing straight: **I (the developer) have absolutely ZERO access to your data.** 
 
-### 2. Intelligent Onboarding (No Code Required)
+This application is built entirely on *your* private infrastructure. When you deploy TV-Timeless, it lives on your personal Google Firebase account. There are no tracking scripts, no hidden analytics, and no telemetry. It is just you, your movies, and your shows. 
 
-To get your personal tracker up and running, we've included an intelligent CLI wizard that handles everything.
+*(Note: TV-Timeless is licensed under the permissive **Apache 2.0 License**, meaning it's free and open-source, but you are responsible for your own deployment and data.)*
 
-1. Clone or download this repository.
-2. Open your terminal in the project folder and run:
-   ```bash
-   npm install
-   npm run setup
-   ```
-3. Follow the beautiful terminal wizard. It will securely configure your `.env` variables and automatically upload your historical TV Time GDPR data to your private Firebase instance!
+---
 
-### 3. Deploy to the Web
+## 📸 The Experience
 
-Once the wizard completes, your database is perfectly seeded and ready! 
-Deploy the front-end to Firebase Hosting so you can access your tracker anywhere:
+*(Drop your awesome screenshots here!)*
 
-```bash
-npm run build
-firebase deploy --only hosting
+### 📊 Dashboard & Tracking
+![Dashboard](screenshots/dashboard.jpg)
+*Keep an eye on what you're watching and see your cinematic stats come to life!*
+
+### 🍿 Shows & Movies Libraries
+![Shows Library](screenshots/shows.jpg)
+*Your entire collection, beautifully organized with sleek glassmorphism design.*
+
+### 🤖 The "Wokealyzer" (AI Mature Content Warnings)
+![AI Insights](screenshots/ai_insights.jpg)
+*Powered by Gemini! Instantly scan shows for explicit/mature content before you watch with family.*
+
+---
+
+## 🏗️ How it Works (Deployment Architecture)
+
+It’s surprisingly simple! Here is how your devices connect to your private tracker:
+
+```mermaid
+graph TD
+    subgraph "Your Devices 📱💻"
+        Phone[Mobile Browser]
+        PC[Desktop Browser]
+    end
+    
+    subgraph "Your Private Firebase Cloud ☁️"
+        Hosting[Firebase Hosting]
+        DB[(Firestore Database)]
+        Vertex[Vertex AI / Gemini]
+    end
+    
+    subgraph "External Metadata APIs 🎬"
+        TMDB[TMDB API]
+        OMDB[OMDB API]
+    end
+    
+    Phone -->|Loads App| Hosting
+    PC -->|Loads App| Hosting
+    
+    Phone <-->|Syncs Watch History| DB
+    PC <-->|Syncs Watch History| DB
+    
+    DB -.->|Pulls Posters/Metadata| TMDB
+    DB -.->|Pulls Posters/Metadata| OMDB
+    
+    DB <-->|Analyzes Content Warnings| Vertex
+    
+    style Hosting fill:#f57c00,stroke:#e65100,color:white,stroke-width:2px
+    style DB fill:#ffca28,stroke:#ff8f00,color:black,stroke-width:2px
+    style Vertex fill:#4285f4,stroke:#0d47a1,color:white,stroke-width:2px
 ```
 
 ---
 
-*This project is completely open-source and agent-friendly. If you are an AI assistant helping a user deploy this, refer to the `AGENT_SETUP.md` guide in this repository!*
+## 🚀 Getting Started (Chimp-Proof Guide 🦧)
+
+Don't know how to code? Don't worry! Follow these steps and you'll have your own Netflix-style tracker up and running in 10 minutes.
+
+### Step 1: Install Node.js
+Go to [nodejs.org](https://nodejs.org/) and download the "LTS" (Long Term Support) installer for your OS (Windows, Mac, or Ubuntu/Linux). Run the installer and click "Next" until it's done.
+
+### Step 2: Grab the Code
+Open your computer's terminal:
+- **Windows**: Press `Win + R`, type `cmd`, and hit Enter.
+- **Mac**: Press `Cmd + Space`, type `Terminal`, and hit Enter.
+- **Ubuntu/Linux**: Press `Ctrl + Alt + T`.
+
+Run these commands to clone this project (make sure you have [Git](https://git-scm.com/downloads) installed!):
+```bash
+git clone https://github.com/cyber-coder-anon/tv-timeless.git
+cd tv-timeless
+npm install
+```
+
+### Step 3: Run the Intelligent Setup Wizard 🧙‍♂️
+Run the following command to start the wizard. It will ask for your Firebase keys and API keys (which are all free to get) and automatically seed your database:
+```bash
+npm run setup
+```
+
+### Step 4: Deploy to the Web! 🌐
+Once the wizard finishes and your data is uploaded, push it to your Firebase Hosting so you can access it on your phone:
+```bash
+npm run build
+firebase deploy --only hosting
+```
+Boom! You're done! 🎉
+
+---
+
+> [!TIP]
+> **🤖 WANT AN AI AGENT TO DO THIS FOR YOU?**
+> If you have access to an agentic AI assistant (like Antigravity, Devin, or GitHub Copilot Workspaces), you can just copy/paste this prompt into the chat and let them handle the entire deployment!
+> 
+> ```text
+> Hey Agent! I want to deploy this TV-Timeless repository. Please read the `AGENT_SETUP.md` file in the root directory for instructions on how to set up my Firebase environment and migrate my data.
+> ```
+
+---
+
+## ⚠️ Disclaimer
+
+**This software was created purely for personal, recreational use.** 
+
+I, the developer, bear absolutely **no responsibility** for how this application is utilized once it leaves this repository. You control the deployment, the database, and the data. That being said, if you somehow manage to use a TV show tracking app for something devious or nefarious, you honestly deserve an award. 🏆 LMAO.
+
+Stay out of trouble, and happy binging! 📺🍿
