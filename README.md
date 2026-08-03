@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="public/logo.jpg" alt="TV-Timeless Logo" width="150" style="margin-bottom: 20px;"/>
+  <img src="public/logo.svg" alt="TV-Timeless Logo" width="150" style="margin-bottom: 20px;"/>
   <h1>📺 TV-Timeless</h1>
   <p>
     <img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg" alt="License"/>
